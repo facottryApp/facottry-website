@@ -4,7 +4,7 @@ import logo from '@/assets/logo.jpg'
 import Link from "next/link"
 
 const NavBar = () => {
-    const isLoggedin = true;
+    const isLoggedin = false;
 
     return (
         <div className="p-5 flex justify-between items-center max-w-7xl m-auto">
