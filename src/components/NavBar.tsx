@@ -29,7 +29,7 @@ const NavBar = () => {
                 </div>) : (
                 <div className="flex font-medium gap-8 items-center">
                     <div className="text-md flex gap-6">
-                        <Link href="/docs" className="hover:text-yellow-600 transition">Dashboard</Link>
+                        <Link href="/home" className="hover:text-yellow-600 transition">Dashboard</Link>
                     </div>
                     <div className="text-md flex gap-6">
                         <Link href="/docs" className="hover:text-yellow-600 transition">Docs</Link>
