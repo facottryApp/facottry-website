@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image"
-import React, { useState } from 'react'
+import React from 'react'
 import logo_1_dark from '@/assets/logo_dark_1.svg'
 import logo_1 from '@/assets/logo_1.svg'
 import Link from "next/link"
@@ -18,8 +18,10 @@ export const VerifyOTP = () => {
     return (
         <div className="flex flex-col items-center justify-center px-6 mx-auto h-screen ">
             {/* Logo */}
-            <Image src={logo_1} alt="logo" className="dark:hidden" width={100} height={100} />
-            <Image src={logo_1_dark} alt="logo" className="hidden dark:block" width={100} height={100} />
+            <Link href='/'>
+                <Image src={logo_1} alt="logo" className="dark:hidden" width={100} height={100} />
+                <Image src={logo_1_dark} alt="logo" className="hidden dark:block" width={100} height={100} />
+            </Link>
 
             {/* Verify Email */}
             <div className="w-full bg-white shadow-lg border rounded-lg dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-darkblue dark:border-slate-700">
@@ -34,6 +36,10 @@ export const VerifyOTP = () => {
                         </div>
 
                         <button type="submit" className="mb-4 w-full bg-primary bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 dark:bg-slate-400 dark:hover:bg-slate-300 transition-all text-white hover:bg-primary/80 dark:text-black">Submit</button>
+
+                        <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                            Didn't get the code? <span className="font-semibold text-primary-600 hover:underline dark:text-primary-500">Resend</span>
+                        </p>
 
                         <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
                             Already have an account? <Link href="/auth/login" className="font-semibold text-primary-600 hover:underline dark:text-primary-500">Login</Link>

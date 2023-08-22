@@ -1,4 +1,4 @@
-import { VerifyOTP } from "@/components/VerifyOTP"
+import { VerifyOTP } from "@/components/auth/VerifyOTP"
 
 const page = () => {
     return (
