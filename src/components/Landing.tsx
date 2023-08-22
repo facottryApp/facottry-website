@@ -4,7 +4,7 @@ import NavBar from "./NavBar"
 
 export const LandingPage = () => {
   return (
-    <div className="">
+    <div className="bg-white">
       <div className="bg-bgblue py-8 px-8">
         <NavBar />
 
