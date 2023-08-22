@@ -1,43 +1,44 @@
 import Image from "next/image"
 import React from 'react'
-import logo from '@/assets/logo.jpg'
+import logo_2 from '@/assets/logo_2.svg'
 import Link from "next/link"
+import ToggleSwitch from "./ToggleTheme"
 
 const NavBar = () => {
-    const isLoggedin = false;
-
     return (
-        <div className="p-5 flex justify-between items-center max-w-7xl m-auto">
-            <Link href="/">
-                <Image
-                    src={logo}
-                    width={150}
-                    height={100}
-                    alt="logo"
-                    className="rounded-2xl"
-                />
-            </Link>
-
-            {!isLoggedin ? (
-                <div className="flex font-medium gap-8 items-center">
-                    <div className="text-md flex gap-6">
-                        <button className="hover:text-yellow-600 transition">About Us</button>
-                        <button className="hover:text-yellow-600 transition">Pricing</button>
-                        <Link href="/docs" className="hover:text-yellow-600 transition">Documentation</Link>
-                    </div>
-                    <button className="border rounded-xl p-2 hover:bg-yellow-600 transition-all hover:text-white">Sign In</button>
-                </div>) : (
-                <div className="flex font-medium gap-8 items-center">
-                    <div className="text-md flex gap-6">
-                        <Link href="/home" className="hover:text-yellow-600 transition">Dashboard</Link>
-                    </div>
-                    <div className="text-md flex gap-6">
-                        <Link href="/docs" className="hover:text-yellow-600 transition">Docs</Link>
-                    </div>
-                    <button className="border rounded-xl p-2 hover:bg-yellow-600 transition-all hover:text-white">Sign Out</button>
+        <nav>
+            {/* Desktop Navbar */}
+            <div className="flex justify-between max-w-7xl items-center m-auto">
+                <div className="flex gap-2 items-center">
+                    <Image
+                        src={logo_2}
+                        alt="FacOTTry"
+                        width={50}
+                        height={50}
+                    />
+                    <p className="font-extrabold text-2xl">
+                        Fac<span className="text-primary">OTT</span>ry
+                    </p>
                 </div>
-            )}
-        </div>
+                <div className="space-x-4 hidden lg:flex font-semibold">
+                    <Link href={'#about'} className="hover:text-primary transition-all">About</Link>
+                    <Link href={'#demo'} className="hover:text-primary transition-all">Demo</Link>
+                    <Link href={'#videos'} className="hover:text-primary transition-all">Videos</Link>
+                    <Link href={'#testimonial'} className="hover:text-primary transition-all">Testimonial</Link>
+                    <Link href={'#pricing'} className="hover:text-primary transition-all">Pricing</Link>
+                    <Link href={'#contact'} className="hover:text-primary transition-all">Contact</Link>
+                </div>
+                <div className="flex gap-8 items-center">
+                    <div className="-mb-1">
+                        <ToggleSwitch />
+                    </div>
+
+                    <Link href='/login' className="flex-shrink-0 border border-black px-10 py-2 rounded-full hover:bg-black hover:text-white transition">
+                        Sign In
+                    </Link>
+                </div>
+            </div>
+        </nav>
     )
 }
 
