@@ -8,8 +8,8 @@ export const Hero = () => {
     <div id="hero" className="flex flex-col-reverse items-center justify-between h-full max-w-7xl mx-10 sm:flex-row sm:mt-14 xl:mx-auto">
       <div className="sm:w-[40%] lg:w-[35%] space-y-4 mt-10 sm:mt-0">
         {/* Text */}
-        <h1 className="text-5xl font-bold font-lexend xl:text-6xl">
-          <p>OTT Factory,<span className="text-black"> For All Your Needs</span></p>
+        <h1 className="text-5xl text-black font-bold font-lexend xl:text-6xl">
+          <p>OTT Factory,<span className=""> For All Your Needs</span></p>
 
         </h1>
         <p className="text-body font-light text-slate-500">
