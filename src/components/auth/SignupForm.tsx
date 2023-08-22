@@ -13,16 +13,14 @@ export const SignupForm = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log("Form submitted");
-        router.push('/auth/verify');
+        router.push('/auth/signup/verify');
     }
 
     return (
         <div className="flex flex-col items-center justify-center px-6 mx-auto h-screen ">
             {/* Logo */}
-            <Link href='/'>
-                <Image src={logo_1} alt="logo" className="dark:hidden" width={100} height={100} />
-                <Image src={logo_1_dark} alt="logo" className="hidden dark:block" width={100} height={100} />
-            </Link>
+            <Image src={logo_1} alt="logo" className="dark:hidden" width={100} height={100} />
+            <Image src={logo_1_dark} alt="logo" className="hidden dark:block" width={100} height={100} />
 
             {/* Signup Form */}
             <div className="w-full bg-white shadow-lg border rounded-lg dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-darkblue dark:border-slate-700">

@@ -12,7 +12,7 @@ export const VerifyOTP = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log("OTP Verified");
-        router.push('/auth/login');
+        router.push('/auth/change-password');
     }
 
     return (
