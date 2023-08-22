@@ -18,7 +18,7 @@ export const Contact = () => {
                     <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 ">Your message</label>
                     <textarea id="message" rows={6} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 " placeholder="Write your message here..."></textarea>
                 </div>
-                <button type="submit" className="py-3 px-5 bg-primary text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300">Send message</button>
+                <button type="submit" className="py-3 px-5 bg-primary text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:bg-primary/80 transition-all">Send message</button>
             </form>
         </div>
     )
