@@ -6,7 +6,7 @@ import ToggleSwitch from "./ToggleTheme"
 
 const NavBar = () => {
     return (
-        <nav>
+        <nav className="">
             {/* Desktop Navbar */}
             <div className="flex justify-between max-w-7xl items-center m-auto">
                 <div className="flex gap-2 items-center">
