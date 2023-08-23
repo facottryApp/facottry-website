@@ -5,7 +5,7 @@ import Link from "next/link"
 import ToggleSwitch from "./interfaces/ToggleTheme"
 
 const NavBar = () => {
-    const isLoggedin = false;
+    const isLoggedin = true;
 
     return (
         <nav>
@@ -38,7 +38,7 @@ const NavBar = () => {
                             <Link href='/home' className="flex-shrink-0 px-6 py-2 rounded-full text-white border border-primary hover:bg-primary/80 mr-4 bg-primary hover:text-white transition">
                                 Dashboard
                             </Link>
-                            <Link href='/logout' className="flex-shrink-0 border border-slate-700 px-8 py-2 rounded-full hover:bg-black hover:text-white transition">
+                            <Link href='/logout' className="flex-shrink-0 border border-slate-700 px-8 py-2 rounded-full hover:bg-black text-black hover:text-white transition">
                                 Sign Out
                             </Link>
                         </div>
