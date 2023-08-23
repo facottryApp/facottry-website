@@ -2,7 +2,7 @@ import Image from "next/image"
 import React from 'react'
 import logo_2 from '@/assets/logo_2.svg'
 import Link from "next/link"
-import ToggleSwitch from "./ToggleTheme"
+import ToggleSwitch from "./interfaces/ToggleTheme"
 
 const NavBar = () => {
     const isLoggedin = false;
@@ -31,9 +31,7 @@ const NavBar = () => {
                     <Link href={'#contact'} className="hover:text-primary transition-all">Contact</Link>
                 </div>
                 <div className="flex space-x-8 items-center">
-                    <div className="-mb-1">
-                        <ToggleSwitch />
-                    </div>
+                    <ToggleSwitch />
 
                     {isLoggedin ? (
                         <div>
