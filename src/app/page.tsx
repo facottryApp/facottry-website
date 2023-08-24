@@ -1,4 +1,4 @@
-import { LandingPage } from "@/components/Landing"
+import { LandingPage } from "@/components/landing/Main"
 
 type Props = {}
 

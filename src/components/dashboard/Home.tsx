@@ -1,12 +1,12 @@
 import React from 'react'
-import Sidebar from "./interfaces/Sidebar"
+import Sidebar from "./Sidebar"
 import { FiEdit3 } from "react-icons/fi"
-import ToggleSwitch from "./interfaces/ToggleTheme"
+import ToggleSwitch from "../common/ToggleTheme"
 import logo from '@/assets/logo_1.svg'
 import Image from 'next/image'
 import { BsChevronDown } from 'react-icons/bs';
 import { AiOutlinePlus } from 'react-icons/ai';
-import { Accordion } from "./interfaces/Accordion"
+import { Accordion } from "../common/Accordion"
 import demo_image from '@/assets/player_theme demo.jpg'
 
 const ConfigList = ['lg.json', 'sony.json', 'samsung.json', 'mi.json', 'oneplus.json', 'oppo.json', 'vivo.json']
@@ -41,7 +41,8 @@ const Dashboard = () => {
   return (
     <div className="flex w-screen min-h-screen bg-bggray dark:bg-darkblue300">
       <Sidebar />
-
+      
+      {/* Dashboard Home */}
       <div className="flex flex-col m-8 w-full">
         {/* Top Navbar */}
         <nav className="flex justify-between">
@@ -67,15 +68,14 @@ const Dashboard = () => {
 
         <hr className="w-full mt-4" />
 
-        {/* Mid Section */}
         <div className="flex justify-between space-x-8 mt-8">
-
           {/* Theme Selector Panel */}
           <div className="w-full space-y-4">
             <Accordion title="Player" themes={PlayerThemes} />
             <Accordion title="Home" themes={HomeThemes} />
           </div>
 
+          {/* Config Selection Panel */}
           <div className="flex flex-col bg-white w-full max-w-[240px] rounded-lg h-fit min-h-[50vh] px-5">
             <h1 className="text-xl font-bold mt-4">Configs</h1>
             <hr className="w-full mt-2" />
@@ -97,10 +97,9 @@ const Dashboard = () => {
               <p>Add Config</p>
             </button>
           </div>
+
         </div>
-
       </div>
-
     </div>
   )
 }

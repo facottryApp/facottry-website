@@ -2,7 +2,7 @@ import Image from "next/image"
 import React from 'react'
 import logo_2 from '@/assets/logo_2.svg'
 import Link from "next/link"
-import ToggleSwitch from "./interfaces/ToggleTheme"
+import ToggleSwitch from "../common/ToggleTheme"
 
 const NavBar = () => {
     const isLoggedin = true;
@@ -35,7 +35,7 @@ const NavBar = () => {
 
                     {isLoggedin ? (
                         <div>
-                            <Link href='/home' className="flex-shrink-0 px-6 py-2 rounded-full text-white border border-primary hover:bg-primary/80 mr-4 bg-primary hover:text-white transition">
+                            <Link href='/dashboard/home' className="flex-shrink-0 px-6 py-2 rounded-full text-white border border-primary hover:bg-primary/80 mr-4 bg-primary hover:text-white transition">
                                 Dashboard
                             </Link>
                             <Link href='/logout' className="flex-shrink-0 border border-slate-700 px-8 py-2 rounded-full hover:bg-black text-black hover:text-white transition">
