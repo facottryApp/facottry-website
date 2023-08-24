@@ -1,4 +1,4 @@
-import DisclosureItem from "@/components/Disclosure"
+import DisclosureItem from "@/components/interfaces/Disclosure"
 import React from 'react'
 import Image from 'next/image'
 import logo_2 from '@/assets/logo_2.svg'

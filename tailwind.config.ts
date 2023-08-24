@@ -25,6 +25,8 @@ const config: Config = {
         darkblue: "#132537",
         darkblue200: "#042444",
         darkblue300: "#00162D",
+
+        bggray: "#F9F9F9",
       },
     },
   },

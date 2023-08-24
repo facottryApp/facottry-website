@@ -18,7 +18,7 @@ const SidebarButton = ({ href, label, icon }: {
 
 const Sidebar = () => {
   return (
-    <div className="bg-white p-8 pl-5">
+    <div className="bg-white p-8 pl-5 dark:bg-darkblue">
       <Link href={'/'} className="flex gap-2 items-center mb-8">
         <Image
           src={logo_2}
@@ -26,12 +26,12 @@ const Sidebar = () => {
           width={50}
           height={50}
         />
-        <p className="font-extrabold text-2xl text-black">
+        <p className="font-extrabold text-2xl text-black dark:text-white">
           Fac<span className="text-primary">OTT</span>ry
         </p>
       </Link>
 
-      <div className="font-medium text-slate-700">
+      <div className="font-medium text-slate-700 dark:text-white">
         <SidebarButton href="/home" label="Dashboard" icon={<FaTh />} />
         <SidebarButton href="/home/analytics" label="Analytics" icon={<FaChartLine />} />
         <SidebarButton href="/home/docs" label="Documentation" icon={<FaFileAlt />} />
