@@ -70,13 +70,14 @@ const Dashboard = () => {
 
         <div className="flex justify-between space-x-8 mt-8">
           {/* Theme Selector Panel */}
-          <div className="w-full space-y-4">
+          <div className="w-full space-y-4 dark:bg-darkblue p-4 rounded-lg">
             <Accordion title="Player" themes={PlayerThemes} />
             <Accordion title="Home" themes={HomeThemes} />
+            <Accordion title="Settings" themes={HomeThemes} />
           </div>
 
           {/* Config Selection Panel */}
-          <div className="flex flex-col bg-white w-full max-w-[240px] rounded-lg h-fit min-h-[50vh] px-5">
+          <div className="flex flex-col bg-white w-full max-w-[240px] rounded-lg h-fit min-h-[50vh] px-5 dark:bg-darkblue">
             <h1 className="text-xl font-bold mt-4">Configs</h1>
             <hr className="w-full mt-2" />
 

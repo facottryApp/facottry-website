@@ -5,7 +5,7 @@ import Link from "next/link"
 import ToggleSwitch from "../common/ToggleTheme"
 
 const NavBar = () => {
-    const isLoggedin = true;
+    const isLoggedin = false;
 
     return (
         <nav>
