@@ -15,7 +15,7 @@ export default function RadioButton({ themes }: Props) {
     const [selected, setSelected] = useState(themes[0])
 
     return (
-        <div className="w-fit">
+        <div className="w-fit max-w-xl m-auto">
             <div className="mx-auto w-full">
                 <RadioGroup value={selected} onChange={setSelected}>
                     <RadioGroup.Label className="sr-only">Themes</RadioGroup.Label>
@@ -29,8 +29,8 @@ export default function RadioButton({ themes }: Props) {
                                         ? 'ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300'
                                         : ''
                                     }
-                  ${checked ? 'bg-primary600 text-white' : 'bg-white'}
-                    relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`
+                  ${checked ? 'bg-primary600 dark:bg-primary800 text-white' : 'bg-white dark:bg-darkblue'}
+                    relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none mb-4 `
                                 }
                             >
                                 {({ active, checked }) => (
@@ -41,14 +41,14 @@ export default function RadioButton({ themes }: Props) {
                                                     <div className="text-sm">
                                                         <RadioGroup.Label
                                                             as="p"
-                                                            className={`font-bold text-lg ${checked ? 'text-white' : 'text-gray-900'}`}
+                                                            className={`font-bold text-lg ${checked ? 'text-white' : 'text-gray-900'} dark:text-white`}
                                                         >
                                                             {theme.name}
                                                         </RadioGroup.Label>
                                                         <RadioGroup.Description
                                                             as="span"
-                                                            className={`inline ${checked ? 'text-sky-100' : 'text-gray-500'
-                                                                }`}
+                                                            className={`inline ${checked ? 'text-sky-100 dark:text-slate-200' : 'text-gray-500'
+                                                                } `}
                                                         >
                                                             <span>
                                                                 {theme.desc}
