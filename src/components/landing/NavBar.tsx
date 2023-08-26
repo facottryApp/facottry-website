@@ -1,17 +1,20 @@
+'use client'
 import Image from "next/image"
 import React from 'react'
 import logo_2 from '@/assets/logo_2.svg'
 import Link from "next/link"
 import ToggleSwitch from "../common/ToggleTheme"
+import { usePathname } from 'next/navigation'
 
 const NavBar = () => {
-    const isLoggedin = false;
+    const isLoggedin = true;
+    const pathname = usePathname();
 
     return (
         <nav>
             {/* Desktop Navbar */}
             <div className="flex justify-between max-w-7xl items-center m-auto">
-                <div className="flex gap-2 items-center">
+                <Link href='/' className="flex gap-2 items-center">
                     <Image
                         src={logo_2}
                         alt="FacOTTry"
@@ -21,15 +24,17 @@ const NavBar = () => {
                     <p className="font-extrabold text-2xl text-black">
                         Fac<span className="text-primary">OTT</span>ry
                     </p>
-                </div>
-                <div className="space-x-4 hidden text-black lg:flex font-semibold">
-                    <Link href={'#about'} className="hover:text-primary transition-all">About</Link>
-                    <Link href={'#demo'} className="hover:text-primary transition-all">Demo</Link>
-                    <Link href={'#videos'} className="hover:text-primary transition-all">Videos</Link>
-                    <Link href={'#testimonial'} className="hover:text-primary transition-all">Testimonial</Link>
-                    <Link href={'#pricing'} className="hover:text-primary transition-all">Pricing</Link>
-                    <Link href={'#contact'} className="hover:text-primary transition-all">Contact</Link>
-                </div>
+                </Link>
+                {pathname === '/' ? (
+                    <div className="space-x-4 hidden text-black lg:flex font-semibold">
+                        <Link href={'#about'} className="hover:text-primary transition-all">About</Link>
+                        <Link href={'#demo'} className="hover:text-primary transition-all">Demo</Link>
+                        <Link href={'#videos'} className="hover:text-primary transition-all">Videos</Link>
+                        <Link href={'#testimonial'} className="hover:text-primary transition-all">Testimonial</Link>
+                        <Link href={'#pricing'} className="hover:text-primary transition-all">Pricing</Link>
+                        <Link href={'#contact'} className="hover:text-primary transition-all">Contact</Link>
+                    </div>
+                ) : null}
                 <div className="flex space-x-8 items-center">
                     <ToggleSwitch />
 

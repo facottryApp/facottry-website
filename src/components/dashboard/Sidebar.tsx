@@ -34,7 +34,7 @@ const Sidebar = () => {
       <div className="font-medium text-slate-700 dark:text-white">
         <SidebarButton href="/dashboard/home" label="Dashboard" icon={<FaTh />} />
         <SidebarButton href="/dashboard/analytics" label="Analytics" icon={<FaChartLine />} />
-        <SidebarButton href="/dashboard/docs" label="Documentation" icon={<FaFileAlt />} />
+        <SidebarButton href="/docs" label="Documentation" icon={<FaFileAlt />} />
         <SidebarButton href="/dashboard/buy-plan" label="Upgrade" icon={<FaShoppingCart />} />
         <SidebarButton href="/dashboard/calculator" label="Bill Calculator" icon={<FaDollarSign />} />
         <SidebarButton href="/dashboard/contact" label="Contact Us" icon={<FaPhone />} />
