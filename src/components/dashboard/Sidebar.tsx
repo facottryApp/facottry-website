@@ -18,7 +18,7 @@ const SidebarButton = ({ href, label, icon }: {
 
 const Sidebar = () => {
   return (
-    <div className="bg-white p-8 pl-5 dark:bg-darkblue">
+    <div className="hidden md:block bg-white p-8 pl-5 dark:bg-darkblue">
       <Link href={'/'} className="flex gap-2 items-center mb-8">
         <Image
           src={logo_2}
