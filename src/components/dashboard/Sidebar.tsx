@@ -35,7 +35,7 @@ const Sidebar = () => {
         <SidebarButton href="/dashboard/home" label="Dashboard" icon={<FaTh />} />
         <SidebarButton href="/dashboard/analytics" label="Analytics" icon={<FaChartLine />} />
         <SidebarButton href="/docs" label="Documentation" icon={<FaFileAlt />} />
-        <SidebarButton href="/dashboard/buy-plan" label="Upgrade" icon={<FaShoppingCart />} />
+        <SidebarButton href="/dashboard/pricing" label="Upgrade" icon={<FaShoppingCart />} />
         <SidebarButton href="/dashboard/calculator" label="Bill Calculator" icon={<FaDollarSign />} />
         <SidebarButton href="/dashboard/contact" label="Contact Us" icon={<FaPhone />} />
         <SidebarButton href="/dashboard/settings" label="Settings" icon={<FaCog />} />

@@ -40,7 +40,7 @@ const Documentation = () => {
                         <li key={index} className="mr-2">
                             <button
                                 onClick={() => { setSelectedTab(tab.name) }}
-                                className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
+                                className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 focus:text-primary focus:border-primary">
                                 {tab.label}
                             </button>
                         </li>
