@@ -30,7 +30,7 @@ const Documentation = () => {
 
     return (
         <div className="bg-white">
-            <div className="py-8 px-8">
+            <div className="pt-8 pb-4 px-8">
                 <NavBar />
             </div>
 
@@ -40,7 +40,7 @@ const Documentation = () => {
                         <li key={index} className="mr-2">
                             <button
                                 onClick={() => { setSelectedTab(tab.name) }}
-                                className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 focus:text-primary focus:border-primary">
+                                className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 focus:text-primary transition-all focus:border-primary duration-300">
                                 {tab.label}
                             </button>
                         </li>
