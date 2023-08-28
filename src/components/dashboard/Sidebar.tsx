@@ -4,6 +4,7 @@ import { FaTh, FaChartLine, FaFileAlt, FaShoppingCart, FaDollarSign, FaPhone, Fa
 import Link from 'next/link';
 import Image from 'next/image'
 import logo_2 from '@/assets/logo_2.svg'
+import logo_dark_2 from '@/assets/logo_dark_2.svg'
 
 const SidebarButton = ({ href, label, icon }: {
   href: string;
@@ -25,6 +26,14 @@ const Sidebar = () => {
           alt="FacOTTry"
           width={50}
           height={50}
+          className="dark:hidden"
+        />
+        <Image
+          src={logo_dark_2}
+          alt="FacOTTry"
+          width={50}
+          height={50}
+          className="hidden dark:block"
         />
         <p className="font-extrabold text-2xl text-black dark:text-white">
           Fac<span className="text-primary">OTT</span>ry
@@ -41,7 +50,7 @@ const Sidebar = () => {
         <SidebarButton href="/dashboard/settings" label="Settings" icon={<FaCog />} />
       </div>
 
-      <hr className="mt-4 w-full"/>
+      <hr className="mt-4 w-full" />
     </div>
   );
 };
