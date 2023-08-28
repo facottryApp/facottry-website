@@ -1,6 +1,5 @@
-'use client'
 import React from 'react';
-import { FaTh, FaChartLine, FaFileAlt, FaShoppingCart, FaDollarSign, FaPhone, FaCog } from 'react-icons/fa';
+import { FiHome, FiBarChart2, FiFileText, FiShoppingCart, FiDollarSign, FiPhone, FiSettings } from 'react-icons/fi';
 import Link from 'next/link';
 import Image from 'next/image'
 import logo_2 from '@/assets/logo_2.svg'
@@ -41,13 +40,13 @@ const Sidebar = () => {
       </Link>
 
       <div className="font-medium text-slate-700 dark:text-white">
-        <SidebarButton href="/dashboard/home" label="Dashboard" icon={<FaTh />} />
-        <SidebarButton href="/dashboard/analytics" label="Analytics" icon={<FaChartLine />} />
-        <SidebarButton href="/docs" label="Documentation" icon={<FaFileAlt />} />
-        <SidebarButton href="/dashboard/pricing" label="Upgrade" icon={<FaShoppingCart />} />
-        <SidebarButton href="/dashboard/buy-features" label="Buy Features" icon={<FaDollarSign />} />
-        <SidebarButton href="/dashboard/contact" label="Contact Us" icon={<FaPhone />} />
-        <SidebarButton href="/dashboard/settings" label="Settings" icon={<FaCog />} />
+        <SidebarButton href="/dashboard/home" label="Dashboard" icon={<FiHome />} />
+        <SidebarButton href="/dashboard/analytics" label="Analytics" icon={<FiBarChart2 />} />
+        <SidebarButton href="/docs" label="Documentation" icon={<FiFileText />} />
+        <SidebarButton href="/dashboard/pricing" label="Upgrade" icon={<FiShoppingCart />} />
+        <SidebarButton href="/dashboard/buy-features" label="Buy Features" icon={<FiDollarSign />} />
+        <SidebarButton href="/dashboard/contact" label="Contact Us" icon={<FiPhone />} />
+        <SidebarButton href="/dashboard/settings" label="Settings" icon={<FiSettings />} />
       </div>
 
       <hr className="mt-4 w-full" />

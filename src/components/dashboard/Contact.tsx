@@ -1,6 +1,5 @@
 import React from 'react';
 import Sidebar from "./Sidebar"
-import { FiEdit3 } from "react-icons/fi"
 import ToggleSwitch from "../common/ToggleTheme"
 import logo from '@/assets/logo_1.svg'
 import Image from 'next/image'
@@ -14,12 +13,7 @@ const Pricing = () => {
             <div className="w-full py-8 px-8 mx-auto ">
                 <nav className="flex justify-between">
                     <div className="flex items-center mr-10 space-x-4">
-                        <h1 className="text-2xl font-bold">Config Dashboard</h1>
-
-                        <button className="flex items-center gap-2 p-2 ml-2 font-medium text-white transition-all rounded-lg bg-primary hover:bg-primary400">
-                            <FiEdit3 fontSize='1.3rem' />
-                            <p>Edit Config</p>
-                        </button>
+                        <h1 className="text-2xl font-bold">Contact</h1>
                     </div>
 
                     <div className="flex items-center gap-6">
