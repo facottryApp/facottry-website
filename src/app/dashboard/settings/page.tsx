@@ -1,10 +1,10 @@
-import Contact from "@/components/dashboard/Contact"
+import Settings from "@/components/dashboard/Settings"
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-        <Contact />
+        <Settings />
     </div>
   )
 }
