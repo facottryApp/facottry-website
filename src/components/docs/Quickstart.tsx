@@ -2,9 +2,9 @@ import React from 'react'
 
 export const Quickstart = () => {
     return (
-        <div className="min-h-screen bg-gray-50 py-8 flex flex-col justify-center relative overflow-hidden lg:py-12 dark:bg-darkblue">
-            <div className="relative w-full px-6 py-12 bg-white shadow-xl shadow-slate-700/10 ring-1 ring-gray-900/5 md:max-w-3xl md:mx-auto lg:max-w-4xl lg:pt-16 lg:pb-28">
-                <div className="mt-8 prose prose-slate mx-auto lg:prose-lg">
+        <div className="relative flex flex-col justify-center min-h-screen py-8 overflow-hidden bg-gray-50 lg:py-12 dark:bg-darkblue">
+            <div className="relative w-full px-6 py-12 bg-white shadow-xl dark:bg-darkblue300 shadow-slate-700/10 ring-1 ring-gray-900/5 md:max-w-3xl md:mx-auto lg:max-w-4xl lg:pt-16 lg:pb-28">
+                <div className="mx-auto mt-8 prose dark:prose-invert prose-slate lg:prose-lg">
                     <h1>Quickstart</h1>
                     <p className="lead">Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.</p>
                     <p>By default, Tailwind removes all of the default browser styling from paragraphs, headings, lists and more. This ends up being really useful for building application UIs because you spend less time undoing user-agent styles, but when you <em>really are</em> just trying to style some content that came from a rich-text editor in a CMS or a markdown file, it can be surprising and unintuitive.</p>
