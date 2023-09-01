@@ -5,6 +5,7 @@ import logo from '@/assets/logo_1.svg'
 import Image from 'next/image'
 import { BsChevronDown } from 'react-icons/bs';
 import ContactForm from "../common/ContactForm";
+import UserDropdown from "../common/UserDropdown";
 
 const Pricing = () => {
     return (
@@ -18,12 +19,7 @@ const Pricing = () => {
 
                     <div className="flex items-center gap-6">
                         <ToggleSwitch />
-
-                        <button className="flex items-center ml-2">
-                            <Image src={logo} alt="user" width={40} height={40} className="p-1 bg-gray-200 rounded-full" />
-                            <p className="ml-3 mr-2 text-lg font-semibold">Kartik</p>
-                            <BsChevronDown />
-                        </button>
+                        <UserDropdown title="Kartik" />
                     </div>
                 </nav>
 

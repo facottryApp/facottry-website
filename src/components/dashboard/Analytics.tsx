@@ -1,11 +1,9 @@
 import React from 'react'
 import Sidebar from "./Sidebar"
 import ToggleSwitch from "../common/ToggleTheme"
-import logo from '@/assets/logo_1.svg'
-import Image from 'next/image'
-import { BsChevronDown } from 'react-icons/bs';
-import Dropdown from "../common/SelectConfig"
+import SelectConfig from "../common/SelectConfig"
 import { PieChart } from "../common/PieChart"
+import UserDropdown from "../common/UserDropdown"
 
 const config = [
     { name: 'sony.json' },
@@ -48,17 +46,12 @@ const Analytics = () => {
                     <div className="flex items-center mr-10 space-x-4">
                         <h1 className="text-2xl font-bold">Analytics</h1>
 
-                        <Dropdown list={config} />
+                        <SelectConfig list={config} />
                     </div>
 
                     <div className="flex items-center gap-6">
                         <ToggleSwitch />
-
-                        <button className="flex items-center ml-2">
-                            <Image src={logo} alt="user" width={40} height={40} className="p-1 bg-gray-200 rounded-full" />
-                            <p className="ml-3 mr-2 text-lg font-semibold">Kartik</p>
-                            <BsChevronDown />
-                        </button>
+                        <UserDropdown title="Kartik" />
                     </div>
                 </nav>
 

@@ -8,6 +8,7 @@ import { BsChevronDown } from 'react-icons/bs';
 import AccountSettings from "./AccountSettings";
 import ConfigSettings from "./ConfigSettings";
 import SecuritySettings from "./SecuritySettings";
+import UserDropdown from "../common/UserDropdown";
 
 const tabs = [
     {
@@ -53,12 +54,7 @@ const Settings = () => {
 
                     <div className="flex items-center gap-6">
                         <ToggleSwitch />
-
-                        <button className="flex items-center ml-2">
-                            <Image src={logo} alt="user" width={40} height={40} className="p-1 bg-gray-200 rounded-full" />
-                            <p className="ml-3 mr-2 text-lg font-semibold">Kartik</p>
-                            <BsChevronDown />
-                        </button>
+                        <UserDropdown title="Kartik" />
                     </div>
                 </nav>
 

@@ -7,7 +7,7 @@ type Props = {
     list: { name: string }[]
 }
 
-export default function Dropdown({ list }: Props) {
+export default function SelectConfig({ list }: Props) {
     const [selected, setSelected] = useState(list[0])
     
     return (
