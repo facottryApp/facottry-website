@@ -38,7 +38,7 @@ export const VerifyOTP = () => {
                         <button type="submit" className="mb-4 w-full bg-primary bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 dark:bg-slate-400 dark:hover:bg-slate-300 transition-all text-white hover:bg-primary/80 dark:text-black">Submit</button>
 
                         <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                            Didn't get the code? <span className="font-semibold text-primary-600 hover:underline dark:text-primary-500">Resend</span>
+                            Didn&apos;t get the code? <span className="font-semibold text-primary-600 hover:underline dark:text-primary-500">Resend</span>
                         </p>
 
                         <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
