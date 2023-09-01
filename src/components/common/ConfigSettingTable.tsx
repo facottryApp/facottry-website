@@ -9,8 +9,8 @@ interface TableProps {
 const Table = ({ columns, values }: TableProps) => {
   return (
     <div className="overflow-x-auto min-h-full">
-      <table className="w-full text-sm text-left text-slate-500">
-        <thead className="text-xs text-slate-700 uppercase border-b">
+      <table className="w-full text-sm text-left text-slate-500 dark:text-slate-200">
+        <thead className="text-xs text-slate-700 dark:text-slate-200 uppercase border-b">
           <tr>
             {columns.map((column) => (
               <th key={column} scope="col" className="px-6 py-3">
@@ -34,13 +34,13 @@ const Table = ({ columns, values }: TableProps) => {
                         <ToggleButton />
                         <button
                           type="button"
-                          className="ml-2 text-sm font-semibold leading-6 text-gray-900"
+                          className="ml-2 text-sm font-semibold leading-6 text-gray-900 dark:text-slate-200"
                         >
                           <AiFillEdit fontSize='1.3rem' />
                         </button>
                         <button
                           type="button"
-                          className="text-sm font-semibold leading-6 ml-4 text-gray-900"
+                          className="text-sm font-semibold leading-6 ml-4 text-gray-900 dark:text-slate-200"
                         >
                           <AiFillDelete fontSize='1.3rem' />
                         </button>

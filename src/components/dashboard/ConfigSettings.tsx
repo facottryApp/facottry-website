@@ -27,10 +27,10 @@ export default function ConfigSettings() {
     <form>
       <div>
         <div className="pb-6">
-          <h2 className="text-base font-semibold leading-7 text-gray-900">Config Settings</h2>
-          <p className="text-sm leading-6 text-gray-600">Manage your configs</p>
+          <h2 className="text-base font-semibold leading-7 dark:text-slate-200 text-gray-900">Config Settings</h2>
+          <p className="text-sm leading-6 text-gray-600 dark:text-slate-400">Manage your configs</p>
 
-          <div className="bg-white p-4 rounded-lg mt-4 h-full">
+          <div className="bg-white p-4 dark:bg-darkblue rounded-lg mt-4 h-full">
             <Table columns={columns} values={values} />
           </div>
         </div>

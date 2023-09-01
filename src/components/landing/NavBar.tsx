@@ -51,12 +51,12 @@ const NavBar = () => {
                     {isLoggedin ? (
                         <div className="flex gap-4">
                             <Button label="Dashboard" link="/dashboard/home" />
-                            <Link href='/logout' className="flex-shrink-0 flex border border-slate-700 px-8 py-2 rounded-full hover:bg-black text-black hover:text-white transition items-center dark:text-slate-200">
+                            <Link href='/logout' className="flex-shrink-0 flex border border-slate-700 px-8 py-2 rounded-full hover:bg-black text-black hover:text-white transition items-center dark:text-slate-200 dark:hover:bg-slate-700">
                                 Sign Out
                             </Link>
                         </div>
                     ) : (
-                        <Link href='/auth/login' className="flex-shrink-0 border border-black px-10 py-2 rounded-full text-black hover:bg-black hover:text-white transition dark:text-slate-200">
+                        <Link href='/auth/login' className="flex-shrink-0 border border-black px-10 py-2 rounded-full text-black hover:bg-black hover:text-white transition dark:text-slate-200 dark:hover:bg-slate-700">
                             Sign In
                         </Link>
                     )}
