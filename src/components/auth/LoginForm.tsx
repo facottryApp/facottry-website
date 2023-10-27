@@ -6,13 +6,29 @@ import logo_1 from '@/assets/logo_1.svg'
 import GoogleIcon from '@/assets/Google.svg'
 import Link from "next/link"
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
+import axios from "axios"
+import { useRouter } from 'next/navigation'
 
 export const LoginForm = () => {
+    const router = useRouter();
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    if(localStorage.getItem("token")) router.push('/');
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("Form submitted");
+
+        try {
+            const result = await axios.post("http://localhost:8000/api/login", {
+                email: e.currentTarget.email.value,
+                password: e.currentTarget.password.value,
+            });
+
+            localStorage.setItem("token", result.data.accessToken);
+            router.push('/');
+        } catch (error: any) {
+            console.log(error);
+        }
     }
 
     return (

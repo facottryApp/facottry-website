@@ -1,16 +1,36 @@
 'use client'
 import Image from "next/image"
-import React from 'react'
+import { useEffect, useState } from 'react'
 import logo_2 from '@/assets/logo_2.svg'
 import logo_dark_2 from '@/assets/logo_dark_2.svg'
 import Link from "next/link"
 import ToggleSwitch from "../common/ToggleTheme"
 import { usePathname } from 'next/navigation'
 import Button from "../common/ButtonGradient"
+import axios from "axios"
 
 const NavBar = () => {
-    const isLoggedin = true;
+    const [isLoggedin, setIsLoggedin] = useState(false);
     const pathname = usePathname();
+
+    useEffect(() => {
+        const verifyToken = async () => {
+            try {
+                const result = await axios.get("http://localhost:8000/api", {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    },
+                });
+    
+                if (result.status === 200) setIsLoggedin(true);
+                else setIsLoggedin(false);
+            } catch (error: any) {
+                console.log(error);
+            }
+        }
+
+        verifyToken();
+    }, [])
 
     return (
         <nav>
@@ -51,7 +71,7 @@ const NavBar = () => {
                     {isLoggedin ? (
                         <div className="flex gap-4">
                             <Button label="Dashboard" link="/dashboard/home" />
-                            <Link href='/logout' className="flex-shrink-0 flex border border-slate-700 px-8 py-2 rounded-full hover:bg-black text-black hover:text-white transition items-center dark:text-slate-200 dark:hover:bg-slate-700">
+                            <Link href='auth/logout' className="flex-shrink-0 flex border border-slate-700 px-8 py-2 rounded-full hover:bg-black text-black hover:text-white transition items-center dark:text-slate-200 dark:hover:bg-slate-700">
                                 Sign Out
                             </Link>
                         </div>
