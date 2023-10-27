@@ -16,13 +16,13 @@ const NavBar = () => {
     useEffect(() => {
         const verifyToken = async () => {
             try {
-                const result = await axios.get("http://localhost:8000/api", {
+                const result = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                     },
                 });
-    
-                if (result.status === 200) setIsLoggedin(true);
+                
+                if (result.data === "AUTHORIZED") setIsLoggedin(true);
                 else setIsLoggedin(false);
             } catch (error: any) {
                 console.log(error);

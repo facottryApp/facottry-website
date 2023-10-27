@@ -1,10 +1,11 @@
 import React from 'react'
 import hero_illustration from '@/assets/hero_illustration.svg'
 import Image from 'next/image'
-import Link from 'next/link'
 import Button from "../common/ButtonGradient"
 
 export const Hero = () => {
+  
+
   return (
     <div id="hero" className="flex flex-col-reverse items-center justify-between h-full max-w-7xl mx-10 sm:flex-row sm:mt-14 xl:mx-auto">
       <div className="sm:w-[40%] lg:w-[35%] space-y-4 mt-10 sm:mt-0">

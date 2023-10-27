@@ -57,7 +57,7 @@ export const LoginForm = () => {
 
                             <div onClick={() => {
                                 setIsPasswordVisible((prevState) => !prevState);
-                            }} className="cursor-pointer absolute right-3 bottom-2 text-white">
+                            }} className="cursor-pointer absolute right-3 bottom-2 text-slate-400 dark:text-slate-400">
                                 {isPasswordVisible ? (
                                     <AiOutlineEyeInvisible fontSize='1.4rem' />
                                 ) : (
