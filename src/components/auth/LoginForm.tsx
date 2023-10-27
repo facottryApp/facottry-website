@@ -13,13 +13,15 @@ export const LoginForm = () => {
     const router = useRouter();
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-    if(localStorage.getItem("token")) router.push('/');
+    if (typeof window !== 'undefined') {
+        if (localStorage.getItem("token")) router.push('/');
+    }
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         try {
-            const result = await axios.post("http://localhost:8000/api/login", {
+            const result = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/login`, {
                 email: e.currentTarget.email.value,
                 password: e.currentTarget.password.value,
             });
@@ -27,7 +29,7 @@ export const LoginForm = () => {
             localStorage.setItem("token", result.data.accessToken);
             router.push('/');
         } catch (error: any) {
-            console.log(error);
+            console.log(error.response);
         }
     }
 

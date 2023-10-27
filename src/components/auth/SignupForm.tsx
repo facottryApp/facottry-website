@@ -5,15 +5,31 @@ import logo_1_dark from '@/assets/logo_dark_1.svg'
 import logo_1 from '@/assets/logo_1.svg'
 import GoogleIcon from '@/assets/Google.svg'
 import Link from "next/link"
+import axios from "axios"
 import { useRouter } from 'next/navigation'
 
 export const SignupForm = () => {
     const router = useRouter();
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("Form submitted");
-        router.push('/auth/signup/verify');
+        const email = e.currentTarget.email.value;
+
+        try {
+            if (email) {
+                const result = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/send-otp`, {
+                    email,
+                });
+
+                if (result.status === 200) router.push(`/auth/verify?email=${email}`
+                );
+            } else {
+                console.log("Email is required");
+            }
+
+        } catch (error: any) {
+            console.log(error);
+        }
     }
 
     return (

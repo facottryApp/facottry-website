@@ -4,15 +4,33 @@ import React from 'react'
 import logo_1_dark from '@/assets/logo_dark_1.svg'
 import logo_1 from '@/assets/logo_1.svg'
 import Link from "next/link"
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
+import axios from "axios"
 
 export const VerifyOTP = () => {
     const router = useRouter();
+    const searchParams = useSearchParams();
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("OTP Verified");
-        router.push('/auth/change-password');
+        const email = searchParams.get('email');
+        const otp = e.currentTarget.otp.value;
+
+        try {
+            if (email) {
+                const result = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/verify-otp`, {
+                    email, otp
+                });
+
+                if (result.status === 200) router.push(`/auth/change-password?email=${email}`
+                );
+            } else {
+                console.log("Email is required");
+            }
+
+        } catch (error: any) {
+            console.log(error);
+        }
     }
 
     return (
@@ -31,8 +49,8 @@ export const VerifyOTP = () => {
                     </h1>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">
-                            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">OTP</label>
-                            <input type="text" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter OTP" />
+                            <label htmlFor="otp" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">OTP</label>
+                            <input type="text" name="otp" id="otp" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter OTP" />
                         </div>
 
                         <button type="submit" className="mb-4 w-full bg-primary bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 dark:bg-slate-400 dark:hover:bg-slate-300 transition-all text-white hover:bg-primary/80 dark:text-black">Submit</button>
