@@ -1,15 +1,25 @@
 'use client'
 import Image from "next/image"
-import React from 'react'
+import React, { useEffect } from 'react'
 import logo_1_dark from '@/assets/logo_dark_1.svg'
 import logo_1 from '@/assets/logo_1.svg'
 import Link from "next/link"
 import { useRouter, useSearchParams } from 'next/navigation'
+import { checkSession } from "@/lib/helpers"
 import axios from "axios"
 
 export const ChangePassword = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
+    
+    useEffect(() => {
+        const check = async () => {
+            const isSessionValid = await checkSession();
+            if(!isSessionValid) router.push('/auth/signup');
+        }
+
+        check();
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

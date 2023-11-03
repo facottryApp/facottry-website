@@ -22,8 +22,10 @@ export const VerifyOTP = () => {
                     email, otp
                 });
 
-                if (result.status === 200) router.push(`/auth/change-password?email=${email}`
-                );
+                if (result.status === 200) {
+                    localStorage.setItem('temp_token', result.data.temp_token);
+                    router.push(`/auth/change-password?email=${email}`);
+                }
             } else {
                 console.log("Email is required");
             }

@@ -17,12 +17,22 @@ export const SignupForm = () => {
 
         try {
             if (email) {
-                const result = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/send-otp`, {
+                const result1 = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/is-registered`, {
                     email,
                 });
 
-                if (result.status === 200) router.push(`/auth/verify?email=${email}`
-                );
+                if (result1.data) {
+                    console.log("Email already registered")
+                    router.push(`/auth/login`);
+                } else {
+                    const result2 = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/send-otp`, {
+                        email,
+                    });
+
+                    if (result2.status === 200) router.push(`/auth/verify?email=${email}`
+                    );
+                }
+
             } else {
                 console.log("Email is required");
             }
