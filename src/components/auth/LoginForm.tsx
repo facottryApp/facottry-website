@@ -1,35 +1,45 @@
 'use client'
 import Image from "next/image"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import logo_1_dark from '@/assets/logo_dark_1.svg'
 import logo_1 from '@/assets/logo_1.svg'
 import GoogleIcon from '@/assets/Google.svg'
 import Link from "next/link"
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
-import axios from "axios"
 import { useRouter } from 'next/navigation'
+import { axios_instance } from "@/lib/helpers"
 
 export const LoginForm = () => {
     const router = useRouter();
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-    if (typeof window !== 'undefined') {
-        if (localStorage.getItem("token")) router.push('/');
-    }
+    useEffect(() => {
+        const isAuth = async () => {
+          try {
+            await axios_instance.get('/');
+            router.push('/');
+          } catch (error: any) {
+            console.log(error);
+          }
+        }
+    
+        isAuth();
+      }, [])
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         try {
-            const result = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/login`, {
+            const result = await axios_instance.post('/login', {
                 email: e.currentTarget.email.value,
                 password: e.currentTarget.password.value,
+                remember_me: true,
             });
 
-            localStorage.setItem("token", result.data.accessToken);
+            console.log(result.data);
             router.push('/');
         } catch (error: any) {
-            console.log(error.response);
+            console.log(error.response.data);
         }
     }
 

@@ -5,12 +5,13 @@ import Image from 'next/image'
 import logo_2 from '@/assets/logo_2.svg'
 import logo_dark_2 from '@/assets/logo_dark_2.svg'
 
-const SidebarButton = ({ href, label, icon }: {
+const SidebarButton = ({ href, label, icon, target }: {
   href: string;
   label: string;
   icon: React.ReactNode;
+  target?: string;
 }) => (
-  <Link href={href} className="flex items-center p-3 hover:text-primary transition">
+  <Link href={href} target={target} className="flex items-center p-3 hover:text-primary transition">
     <span className="mr-3 text-xl">{icon}</span>
     {label}
   </Link>
@@ -42,7 +43,7 @@ const Sidebar = () => {
       <div className="font-medium text-slate-700 dark:text-white">
         <SidebarButton href="/dashboard/home" label="Dashboard" icon={<FiHome />} />
         <SidebarButton href="/dashboard/analytics" label="Analytics" icon={<FiBarChart2 />} />
-        <SidebarButton href="/docs" label="Documentation" icon={<FiFileText />} />
+        <SidebarButton href="/docs" target='_blank' label="Documentation" icon={<FiFileText />} />
         <SidebarButton href="/dashboard/pricing" label="Upgrade" icon={<FiShoppingCart />} />
         <SidebarButton href="/dashboard/buy-features" label="Buy Features" icon={<FiDollarSign />} />
         <SidebarButton href="/dashboard/contact" label="Contact Us" icon={<FiPhone />} />

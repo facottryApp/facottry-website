@@ -3,8 +3,8 @@ import hero_illustration from '@/assets/hero_illustration.svg'
 import Image from 'next/image'
 import Button from "../common/ButtonGradient"
 
-export const Hero = () => {
-  
+export const Hero = ({ isLoggedin }: { isLoggedin: boolean }) => {
+
 
   return (
     <div id="hero" className="flex flex-col-reverse items-center justify-between h-full max-w-7xl mx-10 sm:flex-row sm:mt-14 xl:mx-auto">
@@ -19,7 +19,7 @@ export const Hero = () => {
         </p>
 
         {/* Button */}
-        <Button label="Sign Up" link="/auth/signup"/>
+        {isLoggedin ? (<Button label="Documentation" link="/docs" />) : (<Button label="Sign Up" link="/auth/signup" />)}
       </div>
 
       {/* Hero Image */}

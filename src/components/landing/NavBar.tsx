@@ -1,36 +1,14 @@
 'use client'
 import Image from "next/image"
-import { useEffect, useState } from 'react'
 import logo_2 from '@/assets/logo_2.svg'
 import logo_dark_2 from '@/assets/logo_dark_2.svg'
 import Link from "next/link"
 import ToggleSwitch from "../common/ToggleTheme"
 import { usePathname } from 'next/navigation'
 import Button from "../common/ButtonGradient"
-import axios from "axios"
 
-const NavBar = () => {
-    const [isLoggedin, setIsLoggedin] = useState(false);
+const NavBar = ({ isLoggedin }: { isLoggedin: boolean; }) => {
     const pathname = usePathname();
-
-    useEffect(() => {
-        const verifyToken = async () => {
-            try {
-                const result = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}`, {
-                    headers: {
-                        Authorization: `Bearer ${localStorage.getItem("token")}`,
-                    },
-                });
-                
-                if (result.data === "AUTHORIZED") setIsLoggedin(true);
-                else setIsLoggedin(false);
-            } catch (error: any) {
-                console.log(error);
-            }
-        }
-
-        verifyToken();
-    }, [])
 
     return (
         <nav>

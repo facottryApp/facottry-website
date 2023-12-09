@@ -1,20 +1,14 @@
-import axios from "axios"
+import axios from "axios";
 
-export const checkSession = async () => {
-    try {
-        const temp_token = localStorage.getItem('temp_token');
-        if(!temp_token) return false;
+export const isAuth = async () => {
+  
+};
 
+const axios_instance = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+});
 
-        const result = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/`, {
-            headers: {
-                'Authorization': `Bearer ${temp_token}`
-            }
-        });
+axios_instance.defaults.withCredentials = true;
+axios_instance.defaults.headers.post["Content-Type"] = "application/json";
 
-        if (result.status === 200) return true;
-    } catch (error: any) {
-        console.log(error);
-        return false;
-    }
-}
+export { axios_instance };
