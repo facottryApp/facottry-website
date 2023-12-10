@@ -4,15 +4,32 @@ import React from 'react'
 import logo_1_dark from '@/assets/logo_dark_1.svg'
 import logo_1 from '@/assets/logo_1.svg'
 import Link from "next/link"
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { axios_instance } from "@/lib/helpers"
 
 export const ResetPassword = () => {
     const router = useRouter();
+    const searchParams = useSearchParams();
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("OTP Verified");
-        router.push('/auth/login');
+        const email = searchParams.get('email');
+        const password = e.currentTarget.password.value;
+
+        try {
+            if (email) {
+                const result = await axios_instance.post(`/register`, {
+                    email, password
+                });
+
+                if (result.status === 200) router.push(`/auth/login`);
+            } else {
+                console.log("Email is required");
+            }
+
+        } catch (error: any) {
+            console.log(error);
+        }
     }
 
     return (

@@ -1,25 +1,16 @@
 'use client'
 import Image from "next/image"
-import React, { useEffect } from 'react'
+import React from 'react'
 import logo_1_dark from '@/assets/logo_dark_1.svg'
 import logo_1 from '@/assets/logo_1.svg'
 import Link from "next/link"
-import { useRouter, useSearchParams } from 'next/navigation'
-import { checkSession } from "@/lib/helpers"
-import axios from "axios"
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { axios_instance } from "@/lib/helpers"
 
 export const ChangePassword = () => {
     const router = useRouter();
+    const pathname = usePathname();
     const searchParams = useSearchParams();
-    
-    useEffect(() => {
-        const check = async () => {
-            const isSessionValid = await checkSession();
-            if(!isSessionValid) router.push('/auth/signup');
-        }
-
-        check();
-    }, []);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -28,9 +19,16 @@ export const ChangePassword = () => {
 
         try {
             if (email) {
-                const result = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/register`, {
-                    email, password
-                });
+                let result = null;
+                if(pathname === '/auth/forgot-password/change-password') {
+                    result = await axios_instance.post(`/forgot`, {
+                        password
+                    });
+                } else{
+                    result = await axios_instance.post(`/register`, {
+                        password
+                    });
+                }
 
                 if (result.status === 200) router.push(`/auth/login`);
             } else {
@@ -63,8 +61,8 @@ export const ChangePassword = () => {
                         </div>
 
                         <div className="mb-4">
-                            <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm Password</label>
-                            <input type="password" name="confirm-password" id="confirm-password" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Confirm New Password" />
+                            <label htmlFor="confirm-new-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm New Password</label>
+                            <input type="password" name="confirm-new-password" id="confirm-new-password" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Confirm New Password" />
                         </div>
 
                         <button type="submit" className="mb-4 w-full bg-primary bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 dark:bg-slate-400 dark:hover:bg-slate-300 transition-all text-white hover:bg-primary/80 dark:text-black">Submit</button>

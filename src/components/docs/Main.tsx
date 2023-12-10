@@ -1,10 +1,11 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from "../landing/NavBar"
 import { Quickstart } from "./Quickstart"
 import { Installation } from "./Installation"
 import { Configuration } from "./Configuration"
 import { Usage } from "./Usage"
+import { axios_instance } from "@/lib/helpers"
 
 const tabs = [
     {
@@ -28,10 +29,25 @@ const tabs = [
 const Documentation = () => {
     const [selectedTab, setSelectedTab] = useState('quickstart');
 
+    const [isLoggedin, setIsLoggedin] = useState(false);
+
+    useEffect(() => {
+        const isAuth = async () => {
+            try {
+                await axios_instance.get('/');
+                setIsLoggedin(true);
+            } catch (error: any) {
+                console.log(error);
+            }
+        }
+
+        isAuth();
+    }, [])
+
     return (
         <div className="bg-white dark:bg-darkblue300">
             <div className="pt-8 pb-4 px-8">
-                <NavBar />
+                <NavBar isLoggedin={isLoggedin}/>
             </div>
 
             <div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700 max-w-7xl mx-auto ">

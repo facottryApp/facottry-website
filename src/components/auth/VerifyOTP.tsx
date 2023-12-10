@@ -4,12 +4,15 @@ import React from 'react'
 import logo_1_dark from '@/assets/logo_dark_1.svg'
 import logo_1 from '@/assets/logo_1.svg'
 import Link from "next/link"
-import { useRouter, useSearchParams } from 'next/navigation'
-import axios from "axios"
+import { useRouter, useSearchParams, usePathname } from 'next/navigation'
+import { axios_instance } from "@/lib/helpers"
 
 export const VerifyOTP = () => {
     const router = useRouter();
+    const pathname = usePathname();
     const searchParams = useSearchParams();
+
+    console.log(pathname)
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -18,13 +21,16 @@ export const VerifyOTP = () => {
 
         try {
             if (email) {
-                const result = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/verify-otp`, {
+                const result = await axios_instance.post(`/verify-otp`, {
                     email, otp
                 });
 
                 if (result.status === 200) {
-                    localStorage.setItem('temp_token', result.data.temp_token);
-                    router.push(`/auth/change-password?email=${email}`);
+                    if(pathname === '/auth/forgot-password/verify') {
+                        router.push(`/auth/forgot-password/change-password?email=${email}`);
+                    } else {
+                        router.push(`/auth/signup/change-password?email=${email}`);
+                    }
                 }
             } else {
                 console.log("Email is required");
